@@ -33,7 +33,7 @@ const EditGame = (props) => {
 
     const editSubmitHandler = (e) => {
         e.preventDefault();
-        axios.get(`http://localhost:8000/api/games/${id}`, editedGame
+        axios.put(`http://localhost:8000/api/games/${id}`, editedGame
         ).then((res)=>{
             console.log(res);
             console.log(res.data);

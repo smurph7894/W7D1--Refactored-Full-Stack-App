@@ -36,6 +36,7 @@ const OneGame = () => {
             <p>{game.rating}</p>
             <p>{game.company}</p>
             <div style={{align:"center"}}>
+                <Link to={`/game/edit/${game._id}`}>Edit</Link>
                 <DeleteButton 
                 id={game._id}
                 />

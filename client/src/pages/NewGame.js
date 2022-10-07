@@ -48,6 +48,7 @@ const NewGame = (props) => {
             setGame={setNewGame}
             submitHandler={newSubmitHandler}
             error={error}
+            buttonName={"Add Game"}
             />
         </div>
     )

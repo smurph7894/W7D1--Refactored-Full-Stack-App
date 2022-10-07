@@ -37,6 +37,7 @@ const AllGames = (props) => {
                             style={{width:"150px", height:"150px"}} />
                         </Link>
                         <div style={{align:"center"}}>
+                            <Link to={`/game/edit/${game._id}`}>Edit</Link>
                             <DeleteButton 
                             id={game._id}
                             gameList={gameList}

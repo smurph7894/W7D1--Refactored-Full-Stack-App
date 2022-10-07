@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Form = (props) => {
 
-    const{game, setGame, submitHandler, error} = props;
+    const{game, setGame, submitHandler, error, buttonName} = props;
 
     const onChangeHandler = (e)=>{
         const newStateObject = {...game};
@@ -97,7 +97,7 @@ const Form = (props) => {
                         :null
                     }
                 </div>
-                <button>Add Game</button>
+                <button>{buttonName}</button>
             </form>
         </div>
     )

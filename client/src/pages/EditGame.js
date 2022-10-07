@@ -20,7 +20,7 @@ const EditGame = (props) => {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        axios.put(`http://localhost:8000/api/games/${id}`)
+        axios.get(`http://localhost:8000/api/games/${id}`)
             .then((res)=>{
                 console.log(res);
                 console.log(res.data);
@@ -33,7 +33,7 @@ const EditGame = (props) => {
 
     const editSubmitHandler = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:8000/api/games/${id}`, editedGame
+        axios.get(`http://localhost:8000/api/games/${id}`, editedGame
         ).then((res)=>{
             console.log(res);
             console.log(res.data);
@@ -60,6 +60,7 @@ const EditGame = (props) => {
             setGame={setEditedGame}
             submitHandler={editSubmitHandler}
             error={error}
+            buttonName={"Update Game"}
             />
         </div>
     )

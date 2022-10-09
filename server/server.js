@@ -36,4 +36,8 @@ io.on("connection", socket => {
         //then sends it out a event of type welcome to anyone listening in app.js
         //
     });
+
+    socket.on("GameChanged", data =>{
+        socket.broadcast.emit("ReloadGames", data);
+    });
 });

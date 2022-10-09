@@ -5,8 +5,21 @@ import Header from '../components/Header';
 import DeleteButton from '../components/DeleteButton';
 
 const AllGames = (props) => {
+    const {socket} = props;
 
     const [gameList, setGameList] = useState([]);
+
+    useEffect(()=>{
+        socket.on("ReloadGames", () =>{
+            axios.get("http://localhost:8000/api/games")
+                .then((res)=>{
+                    setGameList(res.data);
+                })
+                .catch((err)=>{
+                    console.log(err);
+                });
+        });
+    }, [socket]);
 
     useEffect(()=> {
         axios.get("http://localhost:8000/api/games")
@@ -42,6 +55,7 @@ const AllGames = (props) => {
                             id={game._id}
                             gameList={gameList}
                             setGameList={setGameList}
+                            socket={socket}
                             />
                         </div>
                     </div>

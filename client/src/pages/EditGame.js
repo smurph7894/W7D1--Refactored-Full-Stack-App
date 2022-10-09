@@ -5,6 +5,7 @@ import Form from '../components/Form';
 import Header from '../components/Header';
 
 const EditGame = (props) => {
+    const {socket} = props;
     
     const {id} = useParams();
     const[error, setError] = useState({});
@@ -37,6 +38,7 @@ const EditGame = (props) => {
         ).then((res)=>{
             console.log(res);
             console.log(res.data);
+            socket.emit("GameChanged");
             navigate("/");
         })
         .catch((err)=>{

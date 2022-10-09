@@ -3,7 +3,7 @@ import axios from "axios";
 import {Link, useNavigate} from 'react-router-dom';
 
 const DeleteButton = (props) =>{
-    const {id, gameList, setGameList} = props;
+    const {id, gameList, setGameList, socket} = props;
     const navigate = useNavigate();
 
     const deleteFilter = (id) =>{
@@ -15,6 +15,7 @@ const DeleteButton = (props) =>{
             .then((res)=>{
                 console.log(res);
                 console.log(res.data);
+                socket.emit("GameChanged");
                 if(gameList){//if AllGame.js is parent component you need to filter and handle state immeadiately
                     deleteFilter(id);
                 }

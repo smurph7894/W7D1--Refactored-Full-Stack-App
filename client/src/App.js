@@ -22,12 +22,12 @@ function App() {
 
     return (
         <div className="App">
-            <button onClick={()=>socket.emit("event_from_client", "click")}>test</button>
+            {/* <button onClick={()=>socket.emit("event_from_client", "click")}>test</button> */}
             <BrowserRouter>
             <Routes>
-                <Route element={<AllGames/>} path="/" />
-                <Route element={<NewGame/>} path="/new" />
-                <Route element={<EditGame/>} path="/game/edit/:id" />
+                <Route element={<AllGames socket={socket}/>} path="/" />
+                <Route element={<NewGame socket={socket}/>} path="/new" />
+                <Route element={<EditGame socket={socket}/>} path="/game/edit/:id" />
                 <Route element={<OneGame/>} path="/game/:id"  />
             </Routes>
         </BrowserRouter>

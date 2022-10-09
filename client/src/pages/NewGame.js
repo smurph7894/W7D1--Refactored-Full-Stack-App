@@ -6,6 +6,7 @@ import Header from '../components/Header';
 
 
 const NewGame = (props) => {
+    const {socket} = props;
 
     const[error, setError] = useState({});
     const [newGame, setNewGame] = useState({
@@ -25,6 +26,7 @@ const NewGame = (props) => {
             .then((res)=>{
                 console.log(res);
                 console.log(res.data);
+                socket.emit("GameChanged");
                 navigate("/");
             })
             .catch((err)=>{

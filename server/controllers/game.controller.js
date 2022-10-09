@@ -4,7 +4,7 @@ module.exports = {
     findAllGames: (req, res) =>{
         Game.find({})
             .then((allGames)=>{
-                console.log(allGames);
+                // console.log(allGames);
                 res.json(allGames);
             })
             .catch((err)=> {
@@ -16,7 +16,7 @@ module.exports = {
     createNewGame: (req, res) =>{
         Game.create(req.body)
             .then((newGame) =>{
-                console.log(newGame);
+                // console.log(newGame);
                 res.json(newGame);
             })
             .catch((err) =>{
@@ -35,7 +35,7 @@ module.exports = {
     findOneGame: (req, res)=>{
         Game.findOne({_id: req.params.id})
             .then((oneGame)=>{
-                console.log(oneGame);
+                // console.log(oneGame);
                 res.json(oneGame);
             })
             .catch((err)=>{
@@ -47,7 +47,7 @@ module.exports = {
     deleteGame: (req, res)=>{
         Game.deleteOne({_id: req.params.id})
             .then((deletedGame)=>{
-                console.log(deletedGame);
+                // console.log(deletedGame);
                 res.json(deletedGame);
             })
             .catch((err)=>{
@@ -62,7 +62,7 @@ module.exports = {
             {new:true, runValidators: true}
             )
             .then((updatedGame)=>{
-                console.log(updatedGame);
+                // console.log(updatedGame);
                 res.json(updatedGame);
             })
             .catch((err)=>{

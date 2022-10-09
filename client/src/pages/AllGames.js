@@ -6,7 +6,7 @@ import DeleteButton from '../components/DeleteButton';
 
 const AllGames = (props) => {
 
-    const [id, gameList, setGameList] = useState([]);
+    const [gameList, setGameList] = useState([]);
 
     useEffect(()=> {
         axios.get("http://localhost:8000/api/games")

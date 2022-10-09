@@ -9,6 +9,9 @@ const GameSchema = new mongoose.Schema({
         required: [true, "A game's name is required!"],
         minlength: [3, "Name's length msut be at least 3 characters!"]
     },
+    tags: {
+        type: [String]       
+    },
     yearReleased: {
         type: Number,
         required: [true, "A game's release year is required!"],

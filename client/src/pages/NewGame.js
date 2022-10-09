@@ -11,6 +11,7 @@ const NewGame = (props) => {
     const[error, setError] = useState({});
     const [newGame, setNewGame] = useState({
         name: "",
+        tags: [],
         yearReleased: "",
         genre: "",
         image: "",

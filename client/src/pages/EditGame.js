@@ -11,6 +11,7 @@ const EditGame = (props) => {
     const[error, setError] = useState({});
     const[editedGame, setEditedGame] = useState({
         name: "",
+        tags: [],
         yearReleased: "",
         genre: "",
         image: "",
@@ -25,7 +26,7 @@ const EditGame = (props) => {
             .then((res)=>{
                 console.log(res);
                 console.log(res.data);
-                setEditedGame(res.data);
+                setEditedGame({...res.data});
             })
             .catch((err)=>{
                 console.log(err);

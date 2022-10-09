@@ -18,6 +18,29 @@ const Form = (props) => {
         setGame(newStateObject);
     };
 
+    const onChangeTag =(index, value)=>{
+        const updatedGame = {...game};
+
+        updatedGame.tags[index]=value;
+
+        setGame(updatedGame);
+    };
+
+    const addTag = (e)=>{
+        e.preventDefault();
+        const updatedGame = {...game};
+        updatedGame.tags.push("");
+        setGame(updatedGame);
+    };
+
+    const removeTag = (e, index)=>{
+        console.log("*****", e)
+        e.preventDefault();
+        const updatedGame = {...game};
+        updatedGame.tags.splice(index, 1);
+        setGame(updatedGame);
+    };
+
     return (
         <div>
             <form onSubmit={submitHandler}>
@@ -29,6 +52,18 @@ const Form = (props) => {
                         <span>{error.name.message}</span>
                         :null
                     }
+                </div>
+                <div>
+                    <label>Tags:</label>
+                    {game.tags && game.tags.map((tag, index)=>{
+                        return (
+                            <div key={`index${index}`}>
+                                <input type="text" name={`tag ${index}`} value={game.tags[index]} onChange={(e)=>onChangeTag(index, e.target.value)} />
+                                <button onClick={(e)=>removeTag(e, index)}>Remove tag</button>
+                            </div>
+                        )
+                    })}
+                    {game.tags.length < 3 ? <button onClick={addTag}>Add tag</button> : null }
                 </div>
                 <div>
                     <label>Year Released</label>
